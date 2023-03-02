@@ -1,0 +1,146 @@
+create table primeira (id serial, descricao varchar(50))
+
+select * from primeira
+
+insert into primeira (id) 
+values (1)
+
+update primeira set id = 3
+where id = 5
+
+delete from primeira 
+where id = 3
+
+alter table primeira drop column descricao
+
+create table fluxoteste1(id serial, descricao varchar(50))
+
+
+insert into fluxoteste1 (descricao) values('Paulo Silveira')
+
+insert into fluxoteste1 (descricao) values('Guilherme Reis')
+
+insert into fluxoteste1 (descricao) values('Daniel Cukier')
+
+ALTER TABLE fluxoteste1 RENAME COLUMN descricao TO cliente;
+
+alter table fluxoteste1 add column valor numeric;
+
+select * from fluxotestemarço2023
+
+SELECT id, cliente, valor FROM fluxoteste1;
+
+UPDATE fluxoteste1 SET valor = //numero// WHERE cliente = 'Paulo Silveira';
+
+UPDATE fluxoteste1 SET valor = //numero// WHERE id = 2;
+
+UPDATE fluxoteste1 SET valor = //numero// WHERE id = 3;
+
+alter table fluxoteste1 rename to fluxotestemarço2023;
+
+alter table fluxotestemarço2023 add column valorTotalClientes numeric;
+
+SELECT string_agg(valortotalclientes::text, ', ') as valortotalclientes, 
+       SUM(valor) AS soma_valores 
+FROM fluxotestemarço2023;
+
+UPDATE fluxotestemarço2023
+SET valortotalclientes = (
+    SELECT SUM(valor) FROM fluxotestemarço2023
+    WHERE fluxotestemarço2023.cliente = cliente);
+
+select * from fluxotestemarço2023
+
+UPDATE fluxotestemarço2023
+SET valortotalclientes = (
+    SELECT SUM(valor) FROM fluxotestemarço2023
+);
+
+alter table fluxotestemarço2023 add column pago boolean default false;
+
+select * from fluxotestemarço2023; 
+
+update fluxotestemarço2023 
+set pago = true 
+where cliente = 'Paulo Silveira'
+
+alter table fluxotestemarço2023 add column aluguel numeric;
+
+2618,52
+
+update fluxotestemarço2023 
+set aluguel = 2618.52 
+
+ALTER TABLE fluxotestemarço2023
+ALTER COLUMN aluguel TYPE numeric(6,2);
+
+alter table fluxotestemarço2023 add column pagoAluguel boolean default false;
+
+select * from fluxotestemarço2023 ;
+
+ALTER TABLE fluxotestemarço2023  
+ADD COLUMN internetVivo numeric(10,2),
+ADD COLUMN pagoInternet boolean,
+ADD COLUMN sabespAgua numeric(10,2),
+ADD COLUMN pagoSabesp boolean,
+ADD COLUMN enelLuz numeric(10,2),
+ADD COLUMN pagoEnel boolean,
+ADD COLUMN seguroMoto numeric(10,2),
+ADD COLUMN pagoSeguroMoto boolean,
+ADD COLUMN timCelular numeric(10,2),
+ADD COLUMN pagoTimCelular boolean,
+ADD COLUMN onix numeric(10,2),
+ADD COLUMN pagoOnix boolean,
+ADD COLUMN faculdadeEad numeric(10,2),
+ADD COLUMN pagoFaculdade boolean;
+
+select * from fluxotestemarço2023 
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagoInternet set default false,
+ALTER COLUMN pagoSabesp set default false,
+ALTER COLUMN pagoEnel set default false,
+ALTER COLUMN pagoSeguroMoto set default false,
+ALTER COLUMN pagoTimCelular set default false,
+ALTER COLUMN pagoOnix set default false,
+ALTER COLUMN pagoFaculdade set default false;
+
+update table fluxotestemarço2023 update column pagointernet boolean default false;
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagointernet SET DEFAULT false;
+
+UPDATE fluxotestemarço2023 SET pagointernet = false WHERE pagointernet IS NULL;
+
+UPDATE fluxotestemarço2023 SET pagointernet = false WHERE pagosabesp IS NULL;
+
+select * from fluxotestemarço2023 
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagosabesp SET DEFAULT false;
+UPDATE fluxotestemarço2023 SET pagosabesp = false WHERE pagosabesp IS NULL;
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagoenel SET DEFAULT false;
+UPDATE fluxotestemarço2023 SET pagoenel = false WHERE pagoenel IS NULL;
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagoseguromoto SET DEFAULT false;
+UPDATE fluxotestemarço2023 SET pagoseguromoto = false WHERE pagoseguromoto IS NULL;
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagotimcelular SET DEFAULT false;
+UPDATE fluxotestemarço2023 SET pagotimcelular = false WHERE pagotimcelular IS NULL;
+
+select * from fluxotestemarço2023 
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagoonix SET DEFAULT false;
+UPDATE fluxotestemarço2023 SET pagoonix = false WHERE pagoonix IS NULL;
+
+
+ALTER TABLE fluxotestemarço2023  
+ALTER COLUMN pagofaculdade SET DEFAULT false;
+UPDATE fluxotestemarço2023 SET pagofaculdade = false WHERE pagofaculdade IS NULL;
+
+select * from fluxotestemarço2023 
